@@ -19,5 +19,21 @@
 		<form action="logout" method="get">
 			<input type="submit" value="logout">
 		</form>
+		<a href="goWrite">게시글 작성하기</a>
+		<table>
+		<tr>
+		<td>제목</td>
+		<td>작성자</td>
+		<td>작성일</td>
+		</tr>
+		<c:forEach items="${bList}" var="board">
+		<tr>
+		<td><a href="boardDetail?boardSeq=${board.boardSeq}">${board.title}</a></td>
+		<td>${board.id}]</td>
+		<td>${board.indate}</td>
+		</tr>
+		</c:forEach>
+		</table>
+		
    </body>
 </html>

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+
 /**
  * Handles requests for the application home page.
  */
@@ -24,6 +25,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 public class HomeController {
 	@Autowired HttpSession session;
 	@Autowired HttpServletRequest request;
+	
 	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 

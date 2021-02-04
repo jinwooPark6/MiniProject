@@ -26,7 +26,7 @@ public class MemberController {
 
 		if (result == 0) {
 			model.addAttribute("message", "같은 아이디가 있습니다.");
-			return "home";
+			return "index";
 		}
 
 		return "login";
@@ -42,7 +42,7 @@ public class MemberController {
 			return "login";
 		}else{
 			session.setAttribute("loginId", result.getId());
-			return "main";
+			return "mypage";
 		}
 	
 	}
@@ -52,7 +52,7 @@ public class MemberController {
 		
 		System.out.println((String)session.getAttribute("loginId"));
 		
-		return "main";
+		return "mypage";
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
