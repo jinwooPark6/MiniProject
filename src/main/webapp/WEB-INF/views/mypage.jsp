@@ -11,17 +11,13 @@
 </head>
 <body>
 
-<h1>회원가입</h1>
-
-	<form action="insertUser" method="post">
-			ID:<input type="text" name="id"><br>
-			<font color="red">${message}</font><br>
-			PW:<input type="password" name="pw"><br>
-			NAME:<input type="text" name="name"><br>
-			PHONE:<input type="tel" name="phone"><br>
-			EMAIL:<input type="email" name="email"><br>
-			BIRTHDATE:<input type="date" name="birthdate"><br>
-			<input type="submit" value="SIGNUP">
+	<h1>${sessionScope.loginId}님의 페이지</h1>
+	
+		<form action="test" method="get">
+			<input type="submit" value="test">
+		</form>
+		<form action="logout" method="get">
+			<input type="submit" value="logout">
 		</form>
    </body>
 </html>

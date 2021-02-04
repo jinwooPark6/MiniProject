@@ -11,17 +11,13 @@
 </head>
 <body>
 
-<h1>회원가입</h1>
+<h1>로그인</h1>
 
-	<form action="insertUser" method="post">
+		<form action="loginUser" method="post">
+		<font color="red">${message}</font>
 			ID:<input type="text" name="id"><br>
-			<font color="red">${message}</font><br>
 			PW:<input type="password" name="pw"><br>
-			NAME:<input type="text" name="name"><br>
-			PHONE:<input type="tel" name="phone"><br>
-			EMAIL:<input type="email" name="email"><br>
-			BIRTHDATE:<input type="date" name="birthdate"><br>
-			<input type="submit" value="SIGNUP">
+			<input type="submit" value="login">
 		</form>
    </body>
 </html>
