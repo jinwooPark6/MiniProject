@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.shw.service.ShowMapper">
+    <insert id="insert" parameterType="com.example.demo.shw.service.Show">
+        insert into shows (title, period, time, venue, admission, price, host, management, inquiry) 
+        values (#{title}, #{period}, #{time}, #{venue}, #{admission}, #{price}, #{host}, #{management}, #{inquiry})
+    </insert>
+    <select id="count" resultType="int">
+        select count(*) from shows 
+   </select>
+    <select id="selectAll" resultType="com.example.demo.shw.service.Show">
+        select show_num showNum,
+                title, 
+                period, 
+                time, 
+                venue, 
+                admission, 
+                price, 
+                host, 
+                management, 
+                inquiry
+        from shows
+    </select>
+    <select id="selectById" resultType="com.example.demo.shw.service.Show" parameterType="int" >
+        select show_num showNum,
+                title, 
+                period, 
+                time, 
+                venue, 
+                admission, 
+                price, 
+                host, 
+                management, 
+                inquiry
+        from shows
+        where show_num like #{showNum}
+    </select>
+    <update id="update" parameterType="com.example.demo.shw.service.Show">
+        update shows set title = #{title}, period = #{period}, time = #{time}, venue = #{venue}, admission = #{admission}, price = #{price}, host = #{host}, management = #{management}, inquiry = #{inquiry}
+        where show_num like #{showNum}
+    </update>
+    <delete id="delete" parameterType="com.example.demo.shw.service.Show">
+        delete from shows where show_num like #{showNum}
+    </delete>
+</mapper>
