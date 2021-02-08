@@ -3,25 +3,21 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Mini Project</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+    <h1> 게시판 </h1>
+        <a id="write" href="#">글 쓰기</a><br>
+        <a id="list" href="#">글 목록</a><br>
 
-<h1>회원가입</h1>
-
-	<form action="insertUser" method="post">
-			ID:<input type="text" name="id"><br>
-			<font color="red">${message}</font><br>
-			PW:<input type="password" name="pw"><br>
-			NAME:<input type="text" name="name"><br>
-			PHONE:<input type="tel" name="phone"><br>
-			EMAIL:<input type="email" name="email"><br>
-			BIRTHDATE:<input type="date" name="birthdate"><br>
-			<input type="submit" value="SIGNUP">
-		</form>
-   </body>
+    <script src="<%=application.getContextPath() %>/resources/cmm/js/cmm.js"></script>
+    <script>
+    	cmm.init(`<%=application.getContextPath() %>`)
+    </script>
+</body>
 </html>
