@@ -7,8 +7,14 @@
 <html>
 <tiles:insertAttribute name="head"/> 
 <body>
+<<<<<<< HEAD
 <tiles:insertAttribute name="navbar"/>
 <tiles:insertAttribute name="content"/>
 <tiles:insertAttribute name="footer"/>   
+=======
+<tiles:insertAttribute name="navbar"/> 
+<tiles:insertAttribute name="container"/> 
+<tiles:insertAttribute name="footer"/> 
+>>>>>>> master
 </body>
 </html>

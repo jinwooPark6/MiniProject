@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+<<<<<<< HEAD
 @Component("page") @Data @Lazy
 public class Pagination {
 
@@ -17,6 +18,18 @@ public class Pagination {
 	private String tname;
 	private boolean existPrev, existNext;
 	public Pagination(){}
+=======
+@Component("page") @Data @Lazy @NoArgsConstructor
+public class Pagination {
+
+	private int totalCount, startRow, endRow,
+				pageCount, pageSize,  startPage, endPage, pageNum,
+				blockCount, prevBlock, nextBlock, blockNum;
+	
+	public final int BLOCK_SIZE = 5;
+	private String tname;
+	private boolean existPrev, existNext;
+>>>>>>> master
 	// SQL 방식
 	public Pagination(String tname, int pageSize, int pageNum, int count) {
 		this.tname = tname;

@@ -10,8 +10,14 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.springframework.stereotype.Service;
+<<<<<<< HEAD
 
 import com.example.demo.bkg.service.Booking;
+=======
+import com.example.demo.cmm.enm.Path;
+import com.example.demo.uss.service.User;
+
+>>>>>>> master
 
 @Service("dummy")
 public class DummyGenerator {
@@ -39,6 +45,7 @@ public class DummyGenerator {
 		}
 		return year+"-"+month+"-"+date;
 	}
+<<<<<<< HEAD
 	public String makeRegdate() {
 		int year = random.apply(2020, 2022);
 		int month = random.apply(1, 13);
@@ -54,6 +61,10 @@ public class DummyGenerator {
 	public String makeExamdate() {
 		return "2020-11-30";
 	}
+=======
+	
+	
+>>>>>>> master
 	/*
 	 * 랜덤 성별 생성하기
 	 * "M" - male, "F" - female
@@ -121,6 +132,7 @@ public class DummyGenerator {
 	    		.get(0);
 	    return fname.get(0)+a[0]+a[1];
 	}
+<<<<<<< HEAD
 	public String makeSubject() {
 		List<String> ls = Arrays.asList("Java","Spring","Python","jQuery","eGovframe");
 		 Collections.shuffle(ls);
@@ -132,11 +144,16 @@ public class DummyGenerator {
 		 return ls.get(0);
 	}
 	
+=======
+	
+
+>>>>>>> master
 	public String makeEmail() {
 		List<String> ls = Arrays.asList("@test.com","@gmail.com","@naver.com");
 		Collections.shuffle(ls);
 		return makeUserid()+ls.get(0);
 	}
+<<<<<<< HEAD
 	public String makeLocation() {
 		List<String> ls = Arrays.asList("예술의 전당","세종문화회관","성남아트센터","디뮤지엄");
 		 Collections.shuffle(ls);
@@ -161,4 +178,16 @@ public class DummyGenerator {
 				);
 	}
 	
+=======
+	
+
+	public User makeUser() {
+		return new User(makeUserid(), "1", makeBirthday(), makeEmail(), makeGender()
+				, makePhoneNumber(), Path.DEFAULT_PROFILE.toString());
+	}
+	
+	
+	
+	
+>>>>>>> master
 }
