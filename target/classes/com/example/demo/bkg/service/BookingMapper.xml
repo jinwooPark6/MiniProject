@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.bkg.service.BookingMapper">
+    <insert id="insert" parameterType="com.example.demo.bkg.service.Booking">
+        insert into bookings (show_title, show_date, show_location, show_price,
+        					  book_id, book_name, book_email, book_pnumber)
+        values (#{showTitle}, #{showDate}, #{showLocation}, #{showPrice}, 
+        		#{bookId}, #{bookName}, #{bookEmail}, #{bookPnumber})
+    </insert>
+    <select id="list" resultType="com.example.demo.bkg.service.Booking">
+	 	select book_num bookNum, 
+	 		   show_title showTitle, 
+	 		   show_date showDate, 
+	 		   show_location showLocation, 
+	 		   show_price showPrice,
+	 		   book_name bookName
+        from bookings
+</select>
+    <select id="count" resultType="int">
+        select count(*) from bookings
+    </select>
+    <select id="selectById" resultType="com.example.demo.bkg.service.Booking" parameterType="int">
+       select book_num bookNum, 
+ 		   show_title showTitle, 
+ 		   show_date showDate, 
+ 		   show_location showLocation, 
+ 		   show_price showPrice,
+ 		   book_id bookId,
+ 		   book_name bookName,
+ 		   book_email bookEmail,
+ 		   book_pnumber bookPnumber
+        from bookings
+        where book_num like #{bookNum}
+    </select>
+    <update id="update" parameterType="com.example.demo.bkg.service.Booking">
+        update bookings set book_name = #{bookName}, book_email = #{bookEmail}, book_pnumber = #{bookPnumber}
+        where book_num like #{bookNum}
+    </update>
+    <delete id="delete" parameterType="com.example.demo.bkg.service.Booking">
+        delete from bookings where book_num like #{bookNum}
+    </delete>
+</mapper>
