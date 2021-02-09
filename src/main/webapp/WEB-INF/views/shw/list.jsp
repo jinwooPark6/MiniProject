@@ -120,65 +120,48 @@ html {
     <div class="container">
       <form>
         <div class="col-50">
-	  	<h3 style="text-align:center;">전체 목록</h3>
-	  	<div id="shw-data"></div>
+	  	<table id="shw-data">
+	  		 	<tr>
+	                <td>글번호</td>
+	            </tr>
+	            <tr>
+	                <td>제목</td>
+	            </tr>
+	            <tr>
+	                <td>기간</td>
+	            </tr>
+	            <tr>
+	                <td>시간</td>
+	            </tr>
+	            <tr>
+	                <td>장소</td>
+	            </tr>
+	            <tr>
+	                <td>관람등급</td>
+	            </tr>
+	            <tr>
+	                <td>가격</td>
+	            </tr>
+	            <tr>
+	                <td>주최</td>
+	            </tr>
+	            <tr>
+	                <td>주관</td>
+	            </tr>
+	            <tr>
+	                <td>문의</td>
+	            </tr>
+			</table>	  		
         </div>
       </form>
     </div>
   </div>
 </div>
 
-<%-- 
-<div class="row">
-  <div class="column">
-    <div class="card">
-      <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
-      <div class="container">
-        <h2>전시회 제목</h2>
-        <p>전시회 장소</p>
-        <p>기간</p>
-        <p>시간</p>
-        <p><button class="button">예매하기</button></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
-      <div class="container">
-        <h2>전시회 제목</h2>
-        <p>전시회 장소</p>
-        <p>기간</p>
-        <p>시간</p>
-        <p><button class="button">예매하기</button></p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-      <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
-      <div class="container">
-        <h2>전시회 제목</h2>
-        <p>전시회 장소</p>
-        <p>기간</p>
-        <p>시간</p>
-        <p><button class="button">예매하기</button></p>
-      </div>
-    </div>
-  </div>
-</div>--%>
-
-	<div id="btn-group" class="clearfix">
-	<input type="text" id="shw-data-count" placeholder="데이터 생성 개수 입력"/>&nbsp;<button type="button" id="shw-generate-db">DB 생성</button>
-    <button id="insert-many-shw">DB 초기화</button><br/>
-	</div>
-
-<script src="${cmm}/js/cmm.js"></script>
-<script src="${shw}/js/shw.js"></script>
+<script src="<%=application.getContextPath() %>/resources/cmm/js/cmm.js"></script>
+<script src="<%=application.getContextPath() %>/resources/shw/js/shw.js"></script>
 <script>
-	shw.list(`{ctx}`)
+	shw.list(`<%=application.getContextPath() %>`)
 </script>
 </body>
 </html>

@@ -13,7 +13,6 @@
 * {
   box-sizing: border-box;
 }
-
 input[type=text], select, textarea {
   width: 100%;
   padding: 12px;
@@ -21,37 +20,31 @@ input[type=text], select, textarea {
   border-radius: 4px;
   resize: vertical;
 }
-
 label {
   padding: 12px 12px 12px 0;
   display: inline-block;
 }
-
 .container {
   border-radius: 5px;
   background-color: #f7f7f7;
   padding: 20px;
 }
-
 .col-25 {
   float: left;
   width: 25%;
   margin-top: 6px;
 }
-
 .col-75 {
   float: left;
   width: 75%;
   margin-top: 6px;
 }
-
 /* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
-
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
   .col-25, .col-75, input[type=submit] {
@@ -59,7 +52,6 @@ label {
     margin-top: 0;
   }
 }
-
 .goHome-btn {
   background-color: #506EA5;
   border: none;
@@ -68,7 +60,6 @@ label {
   font-size: 16px;
   cursor: pointer;
 }
-
 .goHome-btn:hover {
   background-color: #506EA5;
 }

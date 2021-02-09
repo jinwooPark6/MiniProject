@@ -89,13 +89,13 @@ label {
 </style>
 </head>
 <body>
+<div class="container">
 <div class="about-section">
 <button type="button" class="goHome-btn" id="goHome" onclick="location.href='${ctx}/'"><i class="fa fa-home"></i></button>
-  <h1>전시회 상세 페이지</h1> 
 </div>
 <div class="row">
   <div class="col-75">
-    <div class="container">
+	  <h1>전시회 상세 페이지</h1> 
       <form>
 		  <table class="table">
 	        <thead>
@@ -152,9 +152,9 @@ label {
 
 
 <script src="${cmm}/js/cmm.js"></script>
-<script src="${shw}/js/shw.js"></script>
+<script src="<%=application.getContextPath() %>/resources/shw/js/shw.js"></script>
 <script>
-	shw.detail(`${ctx}`)
+	shw.detail(`<%=application.getContextPath() %>`)
 </script>
 </body>
 </html>

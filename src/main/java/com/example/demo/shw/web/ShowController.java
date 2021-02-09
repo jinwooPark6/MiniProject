@@ -8,9 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.example.demo.cmm.enm.Messenger;
-import com.example.demo.cmm.enm.Sql;
-import com.example.demo.cmm.enm.Table;
-import com.example.demo.cmm.service.CommonMapper;
 import com.example.demo.cmm.utl.Pagination;
 import com.example.demo.shw.service.Show;
 import com.example.demo.shw.service.ShowMapper;
@@ -35,7 +32,6 @@ public class ShowController {
     @Autowired ShowService showService;
     @Autowired Pagination page;
     @Autowired ShowMapper showMapper;
-    @Autowired CommonMapper commonMapper;
 
     @PostMapping("")
     public Messenger add(@RequestBody Show show) {
@@ -44,7 +40,7 @@ public class ShowController {
     }
     
     @GetMapping("/list")
-    public List<?> list() {
+    public List<Show> list() {
     	logger.info("=========== 전시회 목록 ===========");
         return showMapper.selectAll();
     }
@@ -83,12 +79,9 @@ public class ShowController {
     }
     
     @PutMapping("")
-    public Map<?,?> update(@RequestBody Show show){
+    public Messenger update(@RequestBody Show show){
     	logger.info("=========== 목록 수정 ===========");
-    	var map = new HashMap<>();
-        int result = showService.update(show);
-        map.put("message", (result == 1) ? "SUCCESS" : "FAILURE");
-        return map;
+    	return showMapper.update(show)==1?Messenger.SUCCESS:Messenger.FAILURE;
     }
     
     @DeleteMapping("")
@@ -101,8 +94,7 @@ public class ShowController {
     public String count() {
     	logger.info(String.format("Count Shows ..."));
     	var map = new HashMap<String,String>();
-    	map.put("TOTAL_COUNT", Sql.TOTAL_COUNT.toString() + Table.SHOWS);	
-    	return string.apply(commonMapper.totalCount(map));
+    	return string.apply(showMapper.count());
     }
    
 }

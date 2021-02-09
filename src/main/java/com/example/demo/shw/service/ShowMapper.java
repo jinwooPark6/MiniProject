@@ -13,8 +13,6 @@ public interface ShowMapper {
 	public int insert(Show show);
 
 	public List<Show> selectAll();
-
-	public List<Show> list();
 	
 	public Show selectById(int showNum);
 

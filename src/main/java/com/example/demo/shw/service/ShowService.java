@@ -29,6 +29,10 @@ public class ShowService {
 	public int add(Show show) {
 		return showMapper.insert(show);
 	}
+	
+	public List<Show> list() {
+		return showMapper.selectAll();
+	}
 	    
 	public int count() {
 		return showMapper.count();

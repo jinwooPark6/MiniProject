@@ -35,54 +35,46 @@ shw = (() => {
 	
 	const list = x => {
 		$.getJSON(`${x}/shows/list`, d => {
-	    	if(d.count != 0) {
-	            const list = d.list
-	            let tr = ''
-	            let i = 0
-	            for(; i < d.count; i++) {
-	                tr+= '<tr>'
-	                    +'<td class="text-center">'+list[i].showNum+'</td>'
-	                    +'<td class="text-center"><a class="title" id="'+list[i].showNum+'" href="#" >'+list[i].title+'</a></td>'
-	                    +'<td class="text-center">'+list[i].period+'</td>'
-	                    +'<td class="text-center">'+list[i].time+'</td>'
-	                    +'<td class="text-center">'+list[i].venue+'</td>'
-	                    +'<td class="text-center">'+list[i].admission+'</td>'
-	                    +'<td class="text-center">'+list[i].price+'</td>'
-	                    +'<td class="text-center">'+list[i].host+'</td>'
-	                    +'<td class="text-center">'+list[i].management+'</td>'
-	                    +'<td class="text-center">'+list[i].inquiry+'</td>'
-	                    +'</tr>'
-	            }
-	            $(`#shw-data`).html(tr)
-	            $(`.title`).each(function(i) {
-	                $(this).click(e => {
-	                    e.preventDefault()
-	                    localStorage.setItem('showNum', `${this.id}`)
-						alert(`상세페이지 진입 성공`)
-	                    location.href = `${x}/move/shows/detail`
-	                })
-	            })
-	        }else {
-	            alert(`목록 실패`)
-	            $(".showNum").text('조회결과 없음')
-	            $(".title").text('조회결과 없음')
-	            $(".period").text('조회결과 없음')
-	            $(".time").text('조회결과 없음')
-	            $(".venue").text('조회결과 없음')
-	            $(".admission").text('조회결과 없음')
-	            $(".price").text('조회결과 없음')
-	            $(".host").text('조회결과 없음')
-	            $(".management").text('조회결과 없음')
-	            $(".inquiry").text('조회결과 없음')
-	        }
-	    })        
+			alert(`목록진입1`)
+			const list = d.list
+			let tr = ''
+			$.each(d.list,
+				(i, j) => {
+						$(tr+=`<tr><td>${j.showNum}</td>
+			   	    		<td><a class="title" href="#" id="${j.title}">${j.title}</a></td>
+			   	    		<td>${j.period}</td>
+							<td>${j.time}</td>
+							<td>${j.venue}</td>
+							<td>${j.admission}</td>
+							<td>${j.price}</td>
+							<td>${j.host}</td>
+							<td>${j.management}</td>
+							<td>${j.inquiry}</td></tr>`)
+							.css({padding: `15px`, textAlign: `left`, fontSize: `small`})
+							.appendTo(`#tab`) 
+			})
+			$('#shw-data').html(tr)
+            $(`.title`).each(function() {
+                $(this).click(e => {
+                    e.preventDefault()
+                    localStorage.setItem(`showNum`, `${this.id}`)
+					alert(`목록에서 상세페이지 진입 성공`)
+                    location.href = `${x}/move/shows/detail`
+                })
+            })
+		})
 	}
+	
+	
+	
 	/*
 	const list = x => {	
 		$.getJSON(`${x.ctx}/shows/list/${x.pageSize}/${x.pageNum}`, d => { 
+			
+	const list = x => {
+		$.getJSON(`${x}/shows/list`, d => {
 			$(`<h3/>`)
 			.attr({id: `title`})
-			.text(`전시회 목록`)
 			.appendTo(`#shw-data`)
 			$(`<table/>`)
 			.attr({id: `tab`})
@@ -98,7 +90,7 @@ shw = (() => {
 			$.each(d.list, 
 				(i, j) => {
 						$(`<tr><td>${j.showNum}</td>
-			   	    		<td>${j.title}</td>
+			   	    		<td><a class="title" href="#" id="${j.title}">${j.title}</a></td>
 			   	    		<td>${j.period}</td>
 							<td>${j.time}</td>
 							<td>${j.venue}</td>
@@ -110,60 +102,20 @@ shw = (() => {
 							.css({padding: `15px`, textAlign: `left`, fontSize: `small`})
 							.appendTo(`#tab`)
 			})
-			$(`<div/>`)
-			.attr({id: `shw_page`})
-			.addClass(`pagination`)
-			.appendTo(`#shw-data`)
-			const page = d.page
-			
-			function* range(start, end) {
-			    yield start;
-			    if (start === end) return;
-			    yield* range(start + 1, end);
-			}
-			
-			if(page.existPrev){
-				$(`<a/>`)
-				.attr({href: `#`})
-				.text(`<<`)
-				.css({backgroundColor: `White`})
-				.appendTo(`#shw_page`)
-				.click(e=>{
-					e.preventDefault()
-					$(`#shw-data`).empty()
-					show.list({ctx: x.ctx, pageSize: `10`, pageNum: page.prevBlock})
+			$(`.title`).each(function() {
+                $(this).click(e => {
+                    e.preventDefault()
+                    localStorage.setItem(`showNum`, `${this.id}`)
+					alert(`상세페이지 진입 성공`)
+                    location.href = `${x}/move/shows/detail`
 				})
-			}
-			$.each(
-				[...range(page.startPage, page.endPage)] ,
-				 (i, j) => {
-					$(`<a/>`)
-						.attr({href: `#`})
-						.css({backgroundColor: (j != page.pageNum) ? `White` : `Lavender`})
-						.text(`${j}`)
-						.appendTo(`#shw_page`)
-						.click(e=>{
-							e.preventDefault()
-							$(`#shw-data`).empty()
-							stu.list({ctx: x.ctx, pageSize: `10`, pageNum: j})
-						})
 			})
-			if(page.existNext){
-				$(`<a/>`)
-				.attr({href: `#`})
-				.css({backgroundColor: `White`})
-				.text(`>>`)
-				.appendTo(`#shw_page`)
-				.click(e=>{
-					e.preventDefault()
-					$(`#shw-data`).empty()
-					stu.list({ctx: x.ctx, pageSize: `10`, pageNum: page.nextBlock})
-				})
-			}
 		})
+		
 	}
 	*/
 	const detail = x => {
+		alert(`상세 진입 1`)
 	$.getJSON(`${x}/shows/${localStorage.getItem(`showNum`)}`, d => {
             $('#showNum').text(d.showNum)
             $('#title').text(d.title)
@@ -209,6 +161,7 @@ shw = (() => {
                         contentType: 'application/json',
                         success: d => {
                             if(d.message === 'SUCCESS'){
+								alert(`수정 성공`)
                                 location.href = `${x}/move/shows/detail`
                             }else{
                                 alert(`수정 실패`)

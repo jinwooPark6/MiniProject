@@ -32,17 +32,7 @@ public class HomeController {
         
         return "index";
     }
-    /*
-     * uss (User Service Support) 디렉토리 이동시 user 사용
-     * 
-    @GetMapping("/show/{page}")
-    public String show(@PathVariable String page) {
-        logger.info("이동 파일: " + page);
-        return String.format("shw:%s", page);
-    }*/
-    /*
-     * sym (System Manager) 디렉토리 이동시 admin 사용
-     * */
+ 
     @GetMapping("/move/{dir}/{page}") 
     public String move(@PathVariable String dir, 
     						@PathVariable String page) {
