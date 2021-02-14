@@ -13,7 +13,6 @@
 * {
   box-sizing: border-box;
 }
-
 input[type=text], select, textarea {
   width: 100%;
   padding: 12px;
@@ -21,37 +20,31 @@ input[type=text], select, textarea {
   border-radius: 4px;
   resize: vertical;
 }
-
 label {
   padding: 12px 12px 12px 0;
   display: inline-block;
 }
-
 .container {
   border-radius: 5px;
   background-color: #f7f7f7;
   padding: 20px;
 }
-
 .col-25 {
   float: left;
   width: 25%;
   margin-top: 6px;
 }
-
 .col-75 {
   float: left;
   width: 75%;
   margin-top: 6px;
 }
-
 /* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
-
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
   .col-25, .col-75, input[type=submit] {
@@ -59,7 +52,6 @@ label {
     margin-top: 0;
   }
 }
-
 .goHome-btn {
   background-color: #506EA5;
   border: none;
@@ -68,7 +60,6 @@ label {
   font-size: 16px;
   cursor: pointer;
 }
-
 .goHome-btn:hover {
   background-color: #506EA5;
 }
@@ -90,71 +81,100 @@ label {
 </head>
 <body>
 <div class="container">
-<div class="about-section">
-<button type="button" class="goHome-btn" id="goHome" onclick="location.href='${ctx}/'"><i class="fa fa-home"></i></button>
-</div>
-<div class="row">
-  <div class="col-75">
-	  <h1>전시회 상세 페이지</h1> 
-      <form>
-		  <table class="table">
-	        <thead>
-	            <tr>
-	                <td>글번호</td>
-	                <td id="showNum"></td>
-	            </tr>
-	            <tr>
-	                <td>제목</td>
-	                <td id="title"></td>
-	            </tr>
-	            <tr>
-	                <td>기간</td>
-	                <td id="period"></td>
-	            </tr>
-	            <tr>
-	                <td>시간</td>
-	                <td id="time"></td>
-	            </tr>
-	            <tr>
-	                <td>장소</td>
-	                <td id="venue"></td>
-	            </tr>
-	            <tr>
-	                <td>관람등급</td>
-	                <td id="admission"></td>
-	            </tr>
-	            <tr>
-	                <td>가격</td>
-	                <td id="price"></td>
-	            </tr>
-	            <tr>
-	                <td>주최</td>
-	                <td id="host"></td>
-	            </tr>
-	            <tr>
-	                <td>주관</td>
-	                <td id="management"></td>
-	            </tr>
-	            <tr>
-	                <td>문의</td>
-	                <td id="inquiry"></td>
-	            </tr>
-	      </thead>
-	    </table>
-	    <div id="btn-group" class="clearfix" style="text-align: center">
-	      <button type="button" id="update-btn" class="update-btn">수정</button>
-	      <button type="button" id="delete-btn" class="delete-btn">삭제</button>
-	    </div>
-      </form>
+	<button type="button" class="goHome-btn" id="goHome" onclick="location.href='${ctx}/'"><i class="fa fa-home"></i></button>
+	<form>
+	  <h2>전시회 상세 페이지</h2> 
+	  <p>전시회 정보 수정과 삭제가 가능합니다.</p>
+    <div class="row">
+      <div class="col-25">
+        <label for="showNum">No</label>
+      </div>
+      <div class="col-75">
+        <p id="showNum"></p>
+      </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="title">제목</label>
+      </div>
+      <div class="col-75">
+        <p id="title"></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="period">기간</label>
+      </div>
+      <div class="col-75">
+        <p id="period"></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="time">시간</label>
+      </div>
+      <div class="col-75">
+        <p id="time"></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="venue">장소</label>
+      </div>
+      <div class="col-75">
+        <p id="venue"></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="admission">입장연령</label>
+      </div>
+      <div class="col-75">
+        <p id="admission"></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="price">가격</label>
+      </div>
+      <div class="col-75">
+        <p id="price"></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="host">주최</label>
+      </div>
+      <div class="col-75">
+        <p id="host"></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="management">주관</label>
+      </div>
+      <div class="col-75">
+        <p id="management"></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="inquiry">문의</label>
+      </div>
+      <div class="col-75">
+        <p id="inquiry"></p>
+      </div>
+    </div>
+	    <div id="btn-group" class="clearfix" style="text-align: right">
+	      <div id="toggle"></div>
+	    </div>
+    </form>
 </div>
-
 
 <script src="${cmm}/js/cmm.js"></script>
-<script src="<%=application.getContextPath() %>/resources/shw/js/shw.js"></script>
+<script src="${shw}/js/shw.js"></script>
 <script>
-	shw.detail(`<%=application.getContextPath() %>`)
+	shw.detail(`${ctx}`)
 </script>
 </body>
 </html>

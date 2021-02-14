@@ -21,7 +21,7 @@ create table shows(
    time varchar(20),
    venue varchar(20),
    admission varchar(20),
-   price varchar(50),
+   price varchar(100),
    host varchar(20),
    management varchar(20),
    inquiry varchar(20)

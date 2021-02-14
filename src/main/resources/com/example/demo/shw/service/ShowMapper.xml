@@ -23,7 +23,7 @@
                 inquiry
         from shows
     </select>
-    <select id="selectById" resultType="com.example.demo.shw.service.Show" parameterType="int" >
+    <select id="selectById" resultType="com.example.demo.shw.service.Show" parameterType="int">
         select show_num showNum,
                 title, 
                 period, 

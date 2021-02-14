@@ -151,7 +151,7 @@ label {
         <label for="admission">입장연령</label>
       </div>
       <div class="col-75">
-        <input type="text" id="admission" placeholder="전체관람가" required>
+        <input type="text" id="admission" value="전체관람가" required>
       </div>
     </div>
     <div class="row">
@@ -159,7 +159,7 @@ label {
         <label for="price">가격</label>
       </div>
       <div class="col-75">
-        <textarea id="price" style="height:70px;" wrap="soft" required>일반(만 19세 이상) : 00,000원&#10청소년(만 13세-18세) : 00,000원&#10어린이(36개월-12세) : 00,000원</textarea>
+        <input type="text" id="price" value="일반(만 19세 이상) : 00,000원 / 청소년(만 13세-18세) : 00,000원 / 어린이(36개월-12세) : 00,000원" required>
       </div>
     </div>
     <div class="row">

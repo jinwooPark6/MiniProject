@@ -35,13 +35,13 @@ public class ShowController {
 
     @PostMapping("")
     public Messenger add(@RequestBody Show show) {
-    	logger.info("=========== 전시회 등록 ==========="+show.toString());
+    	logger.info("======== 전시회 등록 ========"+show.toString());
     	return showMapper.insert(show)==1?Messenger.SUCCESS:Messenger.FAILURE;
     }
     
     @GetMapping("/list")
     public List<Show> list() {
-    	logger.info("=========== 전시회 목록 ===========");
+    	logger.info("======== 전시회 목록 ========");
         return showMapper.selectAll();
     }
     
@@ -74,19 +74,19 @@ public class ShowController {
     */
     @GetMapping("/{showNum}")
     public Show detail(@PathVariable int showNum) {
-    	logger.info("=========== 전시회 상세 ==========="+showNum);
+    	logger.info("======== 전시회 상세 ========");
         return showMapper.selectById(showNum);
     }
     
     @PutMapping("")
     public Messenger update(@RequestBody Show show){
-    	logger.info("=========== 목록 수정 ===========");
+    	logger.info("======== 목록 수정 ========"+show.toString());
     	return showMapper.update(show)==1?Messenger.SUCCESS:Messenger.FAILURE;
     }
     
     @DeleteMapping("")
     public Messenger delete(@RequestBody Show show){
-    	logger.info("=========== 목록 삭제 ===========");
+    	logger.info("======== 목록 삭제 ========"+show.getTitle());
         return showMapper.delete(show)==1?Messenger.SUCCESS:Messenger.FAILURE;
     }
     

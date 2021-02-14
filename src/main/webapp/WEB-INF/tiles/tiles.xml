@@ -9,7 +9,7 @@
 	    <put-attribute name="content" value=""/>
 	    <put-attribute name="footer" value="/WEB-INF/views/cmm/footer.jsp"/>
 	</definition>
-	<definition name="bkg:*" extends="public">
-	    <put-attribute name="content" value="/WEB-INF/views/bkg/{1}.jsp"/>
+	<definition name="shw:*" extends="public">
+	    <put-attribute name="content" value="/WEB-INF/views/shw/{1}.jsp"/>
 	</definition>
 </tiles-definitions>

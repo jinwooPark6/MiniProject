@@ -3,13 +3,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
-<html land="en">
+<html>
 <head>
 <meta charset="utf-8">
 <title>전자정부 프레임워크 프로젝트</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+#shw-data td {
+	border: 1px solid black; padding: 1px;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
@@ -106,62 +110,24 @@ html {
 </style>
 </head>
 <body>
-
-<div id="shw-data"></div>
-
 <div class="about-section">
-<button type="button" class="goHome-btn" id="goHome" onclick="location.href='${ctx}/'"><i class="fa fa-home"></i></button>
-  <h1>전시회 목록</h1> 
-  <p>현재 진행 중인 전시회 목록입니다.</p>
-  <p>Resize the browser window to see that this page is responsive by the way.</p>
-</div>
-<div class="row">
-  <div class="col-75">
-    <div class="container">
-      <form>
-        <div class="col-50">
-	  	<table id="shw-data">
-	  		 	<tr>
-	                <td>글번호</td>
-	            </tr>
-	            <tr>
-	                <td>제목</td>
-	            </tr>
-	            <tr>
-	                <td>기간</td>
-	            </tr>
-	            <tr>
-	                <td>시간</td>
-	            </tr>
-	            <tr>
-	                <td>장소</td>
-	            </tr>
-	            <tr>
-	                <td>관람등급</td>
-	            </tr>
-	            <tr>
-	                <td>가격</td>
-	            </tr>
-	            <tr>
-	                <td>주최</td>
-	            </tr>
-	            <tr>
-	                <td>주관</td>
-	            </tr>
-	            <tr>
-	                <td>문의</td>
-	            </tr>
-			</table>	  		
-        </div>
-      </form>
+	<button type="button" class="goHome-btn" id="goHome" onclick="location.href='${ctx}/'"><i class="fa fa-home"></i></button>
+	<form>
+	  <h2>전시회 목록</h2> 
+	  <p>현재 진행 중인 전시회 목록입니다.</p>
+    <div class="row">
+      <div class="col-25">
+      	  <br>
+		  <div id="shw-data"></div>
+      </div>
     </div>
-  </div>
+    </form>
 </div>
 
-<script src="<%=application.getContextPath() %>/resources/cmm/js/cmm.js"></script>
-<script src="<%=application.getContextPath() %>/resources/shw/js/shw.js"></script>
+<script src="${cmm}/js/cmm.js"></script>
+<script src="${shw}/js/shw.js"></script>
 <script>
-	shw.list(`<%=application.getContextPath() %>`)
+	shw.list(`${ctx}`)
 </script>
 </body>
 </html>
