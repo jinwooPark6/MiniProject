@@ -1,35 +1,35 @@
-<%@ page language="java" pageEncoding="UTF-8" session="false"%>
+  
+<%@ page language="java" pageEncoding="UTF-8" session="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
-<meta http-equiv="Content-Type" content= "text/html; charset=UTF-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<title>게시글 목록</title>
+<meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
-    <h3>게시글 목록</h3>
-    <button class="btn btn-primary" style="float : right;" onclick="location.href='/board/post'">작성</button>
-    <table class="table">
-        <tr>
-            <th>No</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>작성날짜</th>
-            <th>조회수</th>
-        </tr>
-        <c:forEach var="board" items="${list}">
-        <tr>
-            <td>${board.bno}</td>
-            <td><a href="/board/${board.bno}">${board.subject}</a></td>
-            <td>${board.writer}</td>
-            <td><fmt:formatDate value="${board.reg_date}" pattern="MM/ dd" /></td>
-            <td>${board.hit}</td>
-        </tr>
-        </c:forEach>
-    </table>
+<div class="about-section">
+	<button type="button" class="goHome-btn" id="goHome" onclick="location.href='${ctx}/'"><i class="fa fa-home"></i></button>
+	<form>
+	  <h2>후기 목록</h2> 
+
+    <div class="row">
+      <div class="col-25">
+      	  <br>
+		  <div id="brd-data"></div>
+      </div>
+    </div>
+    </form>
+</div>
+
+<script src="${cmm}/js/cmm.js"></script>
+<script src="${brd}/js/brd.js"></script>
+<script>
+	brd.list(`<%=application.getContextPath() %>`)
+</script>
 </body>
-</html> 
+</html>

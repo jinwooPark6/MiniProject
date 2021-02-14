@@ -26,11 +26,12 @@ public class HomeController {
     public String index(HttpSession session, HttpServletRequest request) {
     	String ctx = request.getContextPath();
     	session.setAttribute("ctx", ctx);
-    	session.setAttribute("cmm", ctx+"/resources/cmm");
-    	session.setAttribute("brd", ctx+"/resources/brd");
+    	session.setAttribute("cmm", session.getAttribute("ctx")+"/resources/cmm");
+    	session.setAttribute("brd", session.getAttribute("ctx")+"/resources/brd");
         logger.info("Project Initialized ... ");
         return "index";
     }
+    
     @GetMapping("/move/{dir}/{page}") 
     public String move(@PathVariable String dir, 
     						@PathVariable String page) {

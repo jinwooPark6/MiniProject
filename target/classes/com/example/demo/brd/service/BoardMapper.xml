@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.brd.service.BoardMapper">
+    <insert id="insert" parameterType="com.example.demo.brd.service.Board">
+        insert into boards (title, content, date, id) 
+        values (#{title}, #{content}, #{date}, #{id})
+    </insert>
+    <select id="count" resultType="int">
+        select count(*) from boards 
+   </select>
+    <select id="selectAll" resultType="com.example.demo.brd.service.Board">
+        select board_num boardNum,
+                title, 
+                content,
+                date,
+                id
+        from boards
+    </select>
+    <select id="selectById" resultType="com.example.demo.brd.service.Board" parameterType="int" >
+       select board_num boardNum,
+                title, 
+                content,
+                date,
+                id
+        from boards
+        where board_num like #{boardNum}
+    </select>
+    <update id="update" parameterType="com.example.demo.brd.service.Board">
+        update boards set title = #{title}, content = #{content}, date = #{date}, id = #{id}
+        where board_num like #{boardNum}
+    </update>
+    <delete id="delete" parameterType="com.example.demo.brd.service.Board">
+        delete from boards where board_num like #{boardNum}
+    </delete>
+</mapper>

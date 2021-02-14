@@ -12,7 +12,14 @@ import lombok.NoArgsConstructor;
 @Component
 @Data @Lazy @AllArgsConstructor @NoArgsConstructor
 public class Board {
-	private int num;
-	private String title, content, writer;
-	private LocalDateTime insertTime;
+	private int boardNum;
+	private String title, content, date, id;
 }
+/*
+create table boards(
+   board_num int primary key auto_increment,
+   title varchar(30),
+   content varchar(300),
+   date varchar(20),
+   id varchar(20)
+   );*/
